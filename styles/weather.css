@@ -1,0 +1,42 @@
+body {
+  margin: 50px;
+}
+
+.container {
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.top {
+  padding: 30px 12px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.unit {
+  font-size: 15px;
+}
+
+.row.forecast {
+  margin: 0 0 90px 50px;
+}
+
+.col-1 {
+  padding: 0;
+}

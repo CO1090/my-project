@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles/weather.css" />
+  </head>
+  <body>
+    <div class="container-fluid px-1 px-sm-3 py-5 mx-auto">
+      <div class="row px-3 mt-3 mb-3"">
+      <div class="row top">
+        <div class="col-7">
+          <form id="city-form">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search a city"
+              id="city-input"
+            />
+          </form>
+        </div>
+        <div class="col-1">
+          <form id="city-form-btn">
+            <input type="submit" value="Search" class="btn btn-primary mb-2" />
+          </form>
+        </div>
+        <div class="col-2">
+          <form id="current-location">
+            <input type="submit" value="📍" class="btn btn-secondary mb-2" />
+          </form>
+        </div>
+      </div>
+      <div class="col-6">
+        <h1 id="city"></h1>
+        <h2>
+          <span id="temperature"></span>
+          <span class="unit"
+            ><a href="#" id="unit-celsius">°C</a> |
+            <a href="#" id="unit-fahrenheit">°F</a></span
+          >
+        </h2>
+        <ul>
+          <li id="local-time"></li>
+          <li>🌧 <span id="weather-description"></span></li>
+          <li>H: <strong> 11°C </strong>L: 7°C</li>
+        </ul>
+        <hr />
+        <div class="row bottom">
+          <div class="col-2">
+            <p>
+              Now <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              21 <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              22 <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              23 <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              00 <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              01 <br />
+              🌧<br />
+              9°C
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row forecast">
+          <div class="col-3">
+            <p>
+              Today <br />
+              <br />
+              Thursday <br />
+              <br />
+              Friday <br />
+              <br />
+              Saturday <br />
+              <br />
+              Sunday <br />
+              <br />
+              Monday
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              🌧
+              <br />
+              <br />
+              🌥<br />
+              <br />
+              ⛈ <br />
+              <br />
+              💨 <br />
+              <br />
+              🌩 <br />
+              <br />
+              🌩 <br />
+            </p>
+          </div>
+          <div class="col-2">
+            <p>
+              <strong
+                >7°C <br />
+                <br />
+                9°C <br />
+                <br />
+                7°C <br />
+                <br />
+                6°C <br />
+                <br />
+                5°C <br />
+                <br />
+                2°C</strong
+              >
+            </p>
+          </div>
+          <div class="col-1">
+            <p>
+              11°C <br />
+              <br />
+              13°C <br />
+              <br />
+              10°C <br />
+              <br />
+              10°C <br />
+              <br />
+              12°C <br />
+              <br />
+              7°C
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="javascript/index.js"></script>
+  </body>
+</html>
