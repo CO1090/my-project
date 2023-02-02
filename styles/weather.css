@@ -1,8 +1,9 @@
 body {
-  margin: 50px;
+  margin: 40px;
 }
 
 .weather-container {
+  max-width: 600px;
   border: 1px solid grey;
   border-radius: 10px;
 }
