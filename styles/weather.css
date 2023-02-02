@@ -4,7 +4,7 @@ body {
 
 .weather-container {
   border: 1px solid grey;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .top {
