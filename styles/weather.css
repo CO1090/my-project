@@ -1,10 +1,13 @@
 body {
   font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
 }
 
-.weather-container {
+.weather-container-wrap {
   max-width: 800px;
   margin: 30px auto;
+}
+.weather-container {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
@@ -12,8 +15,36 @@ body {
   color: #ffffff;
 }
 
+.overview {
+  margin-bottom: 20px;
+}
+
+.overview .unit {
+  position: relative;
+  top: -13px;
+  font-size: 12px;
+}
+
 .top {
   padding: 30px 12px;
+}
+
+#unit-celsius,
+#unit-fahrenheit {
+  color: #dadde1;
+}
+
+.footer {
+  font-weight: bold;
+}
+
+h1,
+h2 {
+  font-size: 40px;
+}
+
+h2 {
+  font-weight: lighter;
 }
 
 ul {
