@@ -68,7 +68,16 @@
             </div>
             <ul>
               <li>Last updated: <span id="local-time"></span></li>
-              <li>🌧 <span id="weather-description"></span></li>
+              <li>
+                <div class="d-flex">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="weather icon"
+                    class="weather-icon"
+                  />
+                </div>
+                <span id="weather-description"></span>
+              </li>
               <li>H: <strong> 11°C </strong>L: 7°C</li>
             </ul>
             <hr />
@@ -117,8 +126,12 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="row forecast">
+          <div class="col-6 forecast">
+            <div class="row">
+              <p class="forecast-header">5-Day Forecast</p>
+              <hr />
+            </div>
+            <div class="row forecast-day">
               <div class="col-4">
                 <p>
                   Today <br />
@@ -129,9 +142,7 @@
                   <br />
                   Saturday <br />
                   <br />
-                  Sunday <br />
-                  <br />
-                  Monday
+                  Sunday
                 </p>
               </div>
               <div class="col-3">
@@ -145,15 +156,13 @@
                   <br />
                   💨 <br />
                   <br />
-                  🌩 <br />
-                  <br />
-                  🌩 <br />
+                  🌩
                 </p>
               </div>
               <div class="col-3">
                 <p>
-                  <strong
-                    >7°C <br />
+                  <strong>
+                    7°C <br />
                     <br />
                     9°C <br />
                     <br />
@@ -161,10 +170,8 @@
                     <br />
                     6°C <br />
                     <br />
-                    5°C <br />
-                    <br />
-                    2°C</strong
-                  >
+                    5°C
+                  </strong>
                 </p>
               </div>
               <div class="col-2">
@@ -177,9 +184,7 @@
                   <br />
                   10°C <br />
                   <br />
-                  12°C <br />
-                  <br />
-                  7°C
+                  12°C
                 </p>
               </div>
             </div>

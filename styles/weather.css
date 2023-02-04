@@ -71,8 +71,13 @@ a:hover {
   font-weight: bold;
 }
 
-.row.forecast {
+.col-6.forecast {
   margin: 0 0 0px 0px;
+  position: relative;
+}
+
+.forecast-day {
+  font-size: 25px;
 }
 
 .col-1 {
