@@ -28,7 +28,6 @@ function formatDate(timestamp) {
 // weather API change city and forecast
 
 function showWeatherForecast(forecast) {
-  console.log(forecast);
   let cityTemp = Math.round(forecast.data.main.temp);
   document.querySelector("#temperature").innerHTML = cityTemp;
   document.querySelector("#city").innerHTML = forecast.data.name;
@@ -37,6 +36,15 @@ function showWeatherForecast(forecast) {
   document.querySelector("#local-time").innerHTML = formatDate(
     forecast.data.dt * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${forecast.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", forecast.data.weather[0].description);
 }
 
 function searchCity(location) {
