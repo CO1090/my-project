@@ -1,5 +1,7 @@
-// define date and time
-function getCurrentDateTime(date) {
+// add date and time
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -9,12 +11,10 @@ function getCurrentDateTime(date) {
     "Friday",
     "Saturday",
   ];
-
   let day = days[date.getDay()];
   let currentDate = date.getDate();
   let hours = date.getHours();
   let minutes = date.getMinutes();
-
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -25,19 +25,18 @@ function getCurrentDateTime(date) {
   return `${day} ${currentDate}, ${hours}:${minutes}`;
 }
 
-// add date and time
-let dateTime = document.querySelector("#local-time");
-let currentDateTime = new Date();
-dateTime.innerHTML = getCurrentDateTime(currentDateTime);
-
 // weather API change city and forecast
 
 function showWeatherForecast(forecast) {
+  console.log(forecast);
   let cityTemp = Math.round(forecast.data.main.temp);
   document.querySelector("#temperature").innerHTML = cityTemp;
   document.querySelector("#city").innerHTML = forecast.data.name;
   document.querySelector("#weather-description").innerHTML =
     forecast.data.weather[0].main;
+  document.querySelector("#local-time").innerHTML = formatDate(
+    forecast.data.dt * 1000
+  );
 }
 
 function searchCity(location) {
