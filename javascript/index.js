@@ -111,6 +111,7 @@ function changeUnitF(event) {
   temperature.innerHTML = Math.round(fahrenheitTemp);
 
   document.querySelector("#h-temp").innerHTML = Math.round(fahrenheitHTemp);
+  document.querySelector("#h-unit").innerHTML = "°F";
 }
 
 function changeUnitC(event) {
@@ -119,6 +120,8 @@ function changeUnitC(event) {
   temperature.innerHTML = celsiusTemp;
 
   document.querySelector("#h-temp").innerHTML = hTemp;
+
+  document.querySelector("#h-unit").innerHTML = "°C";
 }
 
 let celsius = document.querySelector("#unit-celsius");
