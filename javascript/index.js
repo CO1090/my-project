@@ -45,10 +45,13 @@ function showWeatherForecast(forecast) {
   document.querySelector("#local-time").innerHTML = formatDate(
     forecast.data.time * 1000
   );
+
   document
     .querySelector("#icon")
     .setAttribute("src", `${forecast.data.condition.icon_url}`);
-  document.querySelector("#icon").setAttribute("alt", forecast.data.icon);
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", forecast.data.condition.icon);
 
   celsiusTemp = cityTemp;
 }
