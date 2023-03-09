@@ -37,8 +37,12 @@ function formatDate(timestamp) {
 // weather API change city and forecast
 
 function showWeatherForecast(forecast) {
+  console.log(forecast.data);
   let cityTemp = Math.round(forecast.data.temperature.current);
   document.querySelector("#temperature").innerHTML = cityTemp;
+  document.querySelector("#h-temp").innerHTML = Math.round(
+    forecast.data.temperature.feels_like
+  );
   document.querySelector("#city").innerHTML = forecast.data.city;
   document.querySelector("#weather-description").innerHTML =
     forecast.data.condition.description;
@@ -59,6 +63,7 @@ function showWeatherForecast(forecast) {
     .setAttribute("alt", forecast.data.condition.icon);
 
   celsiusTemp = cityTemp;
+  hTemp = Math.round(forecast.data.temperature.feels_like);
 }
 
 function searchCity(location) {
@@ -102,13 +107,18 @@ function changeUnitF(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let fahrenheitHTemp = (hTemp * 9) / 5 + 32;
   temperature.innerHTML = Math.round(fahrenheitTemp);
+
+  document.querySelector("#h-temp").innerHTML = Math.round(fahrenheitHTemp);
 }
 
 function changeUnitC(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = celsiusTemp;
+
+  document.querySelector("#h-temp").innerHTML = hTemp;
 }
 
 let celsius = document.querySelector("#unit-celsius");
@@ -118,5 +128,6 @@ celsius.addEventListener("click", changeUnitC);
 fahrenheit.addEventListener("click", changeUnitF);
 
 let celsiusTemp = null;
+let hTemp = null;
 
 searchCity("London");
