@@ -36,7 +36,8 @@ function formatDate(timestamp) {
 
 // weather API change city and forecast
 
-function displayHourForecast() {
+function displayHourForecast(response) {
+  console.log(response.data.hourly);
   let forecastElement = document.querySelector("#hour-forecast");
   let forecastHours = ["Now", "21", "22", "23", "00", "01"];
 
@@ -62,6 +63,16 @@ function displayHourForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getHourlyForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "93d43dfe3b4a950e5b187e5dc313705e";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayHourForecast);
 }
 
 function showWeatherForecast(forecast) {
@@ -95,8 +106,7 @@ function showWeatherForecast(forecast) {
   celsiusTemp = cityTemp;
   hTemp = Math.round(forecast.data.main.feels_like);
 
-  displayHourForecast();
-  //getHourlyForecast(forecast.data.coord);
+  getHourlyForecast(forecast.data.coord);
 }
 
 function searchCity(location) {
