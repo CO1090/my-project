@@ -96,6 +96,7 @@ function showWeatherForecast(forecast) {
   hTemp = Math.round(forecast.data.main.feels_like);
 
   displayHourForecast();
+  //getHourlyForecast(forecast.data.coord);
 }
 
 function searchCity(location) {
@@ -112,8 +113,8 @@ function handleSubmit(event) {
 }
 
 function searchLocation(position) {
-  let lat = position.coord.lat;
-  let lon = position.coord.lon;
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
   let apiKey = "93d43dfe3b4a950e5b187e5dc313705e";
   let units = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
