@@ -45,6 +45,11 @@ function showWeatherForecast(forecast) {
   document.querySelector("#local-time").innerHTML = formatDate(
     forecast.data.time * 1000
   );
+  document.querySelector("#humidity").innerHTML =
+    forecast.data.temperature.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    forecast.data.wind.speed
+  );
 
   document
     .querySelector("#icon")

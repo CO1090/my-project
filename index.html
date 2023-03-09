@@ -70,17 +70,26 @@
             <ul>
               <li>Last updated: <span id="local-time"></span></li>
               <li>
-                <div class="d-flex">
-                  <img
-                    src=""
-                    alt="weather icon"
-                    class="weather-icon"
-                    id="icon"
-                  />
+                <div class="row">
+                  <div class="d-flex col-6">
+                    <img
+                      src=""
+                      alt="weather icon"
+                      class="weather-icon"
+                      id="icon"
+                    />
+                  </div>
+                  <div class="col-6 conditions">
+                    <p>Humidity: <span id="humidity"></span>%</p>
+                    <p>Wind: <span id="wind"></span> km/h</p>
+                  </div>
                 </div>
                 <span id="weather-description"></span>
               </li>
-              <li>H: <strong> 11°C </strong>L: 7°C</li>
+              <li>
+                H: <strong> <span id="h-temp"> 11</span>°C</strong>L:
+                <span id="l-temp">7</span>°C
+              </li>
             </ul>
             <hr />
             <div class="row bottom">
