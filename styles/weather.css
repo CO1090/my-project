@@ -87,3 +87,7 @@ a:hover {
   position: relative;
   top: 53px;
 }
+
+#weather-description {
+  text-transform: capitalize;
+}
