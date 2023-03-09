@@ -36,6 +36,33 @@ function formatDate(timestamp) {
 
 // weather API change city and forecast
 
+function displayHourForecast() {
+  let forecastElement = document.querySelector("#hour-forecast");
+  let forecastHTML = `<div class="row bottom">`;
+  let forecastHours = ["Now", "21", "22", "23", "00", "01"];
+  forecastHours.forEach(function (hour) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+                <p>
+                  ${hour} <br />
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+                    alt=""
+                    width="30"
+                  /><br />
+                  <strong>9°C</strong>
+                </p>
+              </div>
+              
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeatherForecast(forecast) {
   console.log(forecast.data);
   let cityTemp = Math.round(forecast.data.temperature.current);
@@ -64,6 +91,8 @@ function showWeatherForecast(forecast) {
 
   celsiusTemp = cityTemp;
   hTemp = Math.round(forecast.data.temperature.feels_like);
+
+  displayHourForecast();
 }
 
 function searchCity(location) {
