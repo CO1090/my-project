@@ -38,8 +38,9 @@ function formatDate(timestamp) {
 
 function displayHourForecast() {
   let forecastElement = document.querySelector("#hour-forecast");
-  let forecastHTML = `<div class="row bottom">`;
   let forecastHours = ["Now", "21", "22", "23", "00", "01"];
+
+  let forecastHTML = `<div class="row bottom">`;
   forecastHours.forEach(function (hour) {
     forecastHTML =
       forecastHTML +
