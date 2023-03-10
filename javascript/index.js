@@ -35,7 +35,7 @@ function formatDate(timestamp) {
 }
 
 function formatHour(hour) {
-  let hours = new Date(hour).getHours();
+  let hours = new Date(hour * 1000).getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -51,13 +51,14 @@ function displayHourForecast(response) {
   let forecastElement = document.querySelector("#hour-forecast");
 
   let forecastHTML = `<div class="row bottom">`;
-  forecastHourly.forEach(function (forecastHour) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastHourly.forEach(function (forecastHour, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
                 <p>
-                  ${formatHour(forecastHour.dt * 1000)} <br />
+                  ${formatHour(forecastHour.dt)} <br />
                   <img
                     src="https://openweathermap.org/img/wn/${
                       forecastHour.weather[0].icon
@@ -65,11 +66,33 @@ function displayHourForecast(response) {
                     alt=""
                     width="30"
                   /><br />
-                  <strong>${Math.round(forecastHour.temp)}°C</strong>
+                  <strong>${Math.round(forecastHour.temp)}°</strong>
                 </p>
               </div>
               
   `;
+    }
+
+    if (index === 0) {
+      forecastHTML =
+        forecastHTML +
+        `
+    <div class="col-2">
+                <p>
+                  Now <br />
+                  <img
+                    src="https://openweathermap.org/img/wn/${
+                      forecastHour.weather[0].icon
+                    }@2x.png"
+                    alt=""
+                    width="30"
+                  /><br />
+                  <strong>${Math.round(forecastHour.temp)}°</strong>
+                </p>
+              </div>
+              
+  `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -165,7 +188,6 @@ function changeUnitF(event) {
   temperature.innerHTML = Math.round(fahrenheitTemp);
 
   document.querySelector("#h-temp").innerHTML = Math.round(fahrenheitHTemp);
-  document.querySelector("#h-unit").innerHTML = "°F";
 }
 
 function changeUnitC(event) {
@@ -174,8 +196,6 @@ function changeUnitC(event) {
   temperature.innerHTML = celsiusTemp;
 
   document.querySelector("#h-temp").innerHTML = hTemp;
-
-  document.querySelector("#h-unit").innerHTML = "°C";
 }
 
 let celsius = document.querySelector("#unit-celsius");
