@@ -34,27 +34,38 @@ function formatDate(timestamp) {
   return `${day} ${currentDate}, ${hours}:${minutes}`;
 }
 
+function formatHour(hour) {
+  let hours = new Date(hour).getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  return `${hours}`;
+}
+
 // weather API change city and forecast
 
 function displayHourForecast(response) {
   console.log(response.data.hourly);
+  let forecastHourly = response.data.hourly;
   let forecastElement = document.querySelector("#hour-forecast");
-  let forecastHours = ["Now", "21", "22", "23", "00", "01"];
 
   let forecastHTML = `<div class="row bottom">`;
-  forecastHours.forEach(function (hour) {
+  forecastHourly.forEach(function (forecastHour) {
     forecastHTML =
       forecastHTML +
       `
     <div class="col-2">
                 <p>
-                  ${hour} <br />
+                  ${formatHour(forecastHour.dt * 1000)} <br />
                   <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+                    src="https://openweathermap.org/img/wn/${
+                      forecastHour.weather[0].icon
+                    }@2x.png"
                     alt=""
                     width="30"
                   /><br />
-                  <strong>9°C</strong>
+                  <strong>${Math.round(forecastHour.temp)}°C</strong>
                 </p>
               </div>
               
