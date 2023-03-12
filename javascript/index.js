@@ -43,10 +43,35 @@ function formatHour(hour) {
   return `${hours}`;
 }
 
+function formatDay(day) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let fDay = days[new Date(day * 1000).getDay()];
+
+  return `${fDay}`;
+}
+
 // weather API change city and forecast
+
+function displayDayForecast(response) {
+  let forecastDay = response.data.daily;
+  for (let i = 0; i < 5; i++) {
+    let forecastDate = formatDay(forecastDay[i].dt);
+    let icon = forecastDay[i].weather[0].icon;
+    let maxTemp = Math.round(forecastDay[i].temp.max);
+    let minTemp = Math.round(forecastDay[i].temp.min);
+
+    document.getElementById(`day-${i}`).textContent = forecastDate;
+    document.getElementById(
+      `icon-${i}`
+    ).src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    document.getElementById(`max-temp-${i}`).textContent = maxTemp;
+    document.getElementById(`min-temp-${i}`).textContent = minTemp;
+  }
+}
 
 function displayHourForecast(response) {
   console.log(response.data.hourly);
+  console.log(response.data.daily);
   let forecastHourly = response.data.hourly;
   let forecastElement = document.querySelector("#hour-forecast");
 
@@ -99,7 +124,7 @@ function displayHourForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getHourlyForecast(coordinates) {
+function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "93d43dfe3b4a950e5b187e5dc313705e";
   let units = "metric";
@@ -107,6 +132,7 @@ function getHourlyForecast(coordinates) {
 
   console.log(apiUrl);
   axios.get(apiUrl).then(displayHourForecast);
+  axios.get(apiUrl).then(displayDayForecast);
 }
 
 function showWeatherForecast(forecast) {
@@ -140,7 +166,7 @@ function showWeatherForecast(forecast) {
   celsiusTemp = cityTemp;
   hTemp = Math.round(forecast.data.main.feels_like);
 
-  getHourlyForecast(forecast.data.coord);
+  getForecast(forecast.data.coord);
 }
 
 function searchCity(location) {

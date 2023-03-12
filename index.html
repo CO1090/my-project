@@ -100,69 +100,64 @@
               <p class="forecast-header">5-Day Forecast</p>
               <hr />
             </div>
-            <div class="row forecast-day">
-              <div class="col-6">
-                <p>
-                  Today <br />
-                  <br />
-                  Thursday <br />
-                  <br />
-                  Friday <br />
-                  <br />
-                  Saturday <br />
-                  <br />
-                  Sunday
-                </p>
-              </div>
-              <div class="col-3">
-                <p>
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
-                    alt=""
-                    width="40"
-                  />
-                  <br />
-                  <br />
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
-                    alt=""
-                    width="40"
-                  /><br />
-                  <br />
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
-                    alt=""
-                    width="40"
-                  /><br />
-                  <br />
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
-                    alt=""
-                    width="40"
-                  />
-                  <br />
-                  <br />
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
-                    alt=""
-                    width="40"
-                  />
-                </p>
-              </div>
-              <div class="col-3">
-                <p>
-                  <strong>
-                    7° <br />
+            <div class="dayForecast">
+              <div class="row forecast-day" id="day-forecast">
+                <div class="col-4">
+                  <p>
+                    <span id="day-0"></span><br />
                     <br />
-                    9° <br />
+                    <span id="day-1"></span><br />
                     <br />
-                    7° <br />
+                    <span id="day-2"></span><br />
                     <br />
-                    6° <br />
+                    <span id="day-3"></span><br />
                     <br />
-                    5°
-                  </strong>
-                </p>
+                    <span id="day-4"></span>
+                  </p>
+                </div>
+                <div class="col-3">
+                  <p>
+                    <img src="" id="icon-0" alt="" width="40" />
+                    <br />
+                    <br />
+                    <img src="" id="icon-1" alt="" width="40" /><br />
+                    <br />
+                    <img src="" id="icon-2" alt="" width="40" /><br />
+                    <br />
+                    <img src="" id="icon-3" alt="" width="40" />
+                    <br />
+                    <br />
+                    <img src="" id="icon-4" alt="" width="40" />
+                  </p>
+                </div>
+                <div class="col-3">
+                  <p>
+                    <strong>
+                      <span id="max-temp-0"></span>°<br />
+                      <br />
+                      <span id="max-temp-1"></span>°<br />
+                      <br />
+                      <span id="max-temp-2"></span>°<br />
+                      <br />
+                      <span id="max-temp-3"></span>°<br />
+                      <br />
+                      <span id="max-temp-4"></span>°
+                    </strong>
+                  </p>
+                </div>
+                <div class="col-2">
+                  <p>
+                    <span id="min-temp-0"></span>°<br />
+                    <br />
+                    <span id="min-temp-1"></span>°<br />
+                    <br />
+                    <span id="min-temp-2"></span>°<br />
+                    <br />
+                    <span id="min-temp-3"></span>°<br />
+                    <br />
+                    <span id="min-temp-4"></span>°
+                  </p>
+                </div>
               </div>
             </div>
           </div>
