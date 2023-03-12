@@ -148,6 +148,34 @@ function showWeatherForecast(forecast) {
     .querySelector("#icon")
     .setAttribute("alt", forecast.data.weather[0].description);
 
+  let weatherCode = forecast.data.weather[0].id;
+
+  if (weatherCode > 199 && weatherCode < 233) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/108/original/thunderstorm.jpg?1678583954')";
+  } else if (weatherCode > 299 && weatherCode < 322) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/109/original/drizzle.jpg?1678584320')";
+  } else if (weatherCode > 499 && weatherCode < 532) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/110/original/rain.jpg?1678584827')";
+  } else if (weatherCode > 599 && weatherCode < 623) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/111/original/snow.jpg?1678585122')";
+  } else if (weatherCode > 700 && weatherCode < 782) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/113/original/mist_fog.jpg?1678585778')";
+  } else if (weatherCode === 800) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/120/original/clear_sky.jpg?1678587629')";
+  } else if (weatherCode > 800 && weatherCode < 805) {
+    document.querySelector(".weather-container").style.backgroundImage =
+      "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/071/121/original/clouds.jpg?1678587643')";
+  } else {
+    document.querySelector(".weather-container").style.backgroundColor =
+      "#000000";
+  }
+
   getForecast(forecast.data.coord);
 }
 
