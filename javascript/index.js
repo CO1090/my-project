@@ -1,14 +1,3 @@
-// function searchCity(location) {
-//   console.log(location.data);
-// }
-// let apiKey = "7901bdaf7a02d4bcod183etbf6319a10";
-// let units = "metric";
-// let WeatherUrl = `https://api.shecodes.io/weather/v1/current?query=London&key=${apiKey}&units=${units}`;
-
-// axios.get(WeatherUrl).then(searchCity);
-
-// add date and time
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -71,8 +60,6 @@ function displayDayForecast(response) {
 }
 
 function displayHourForecast(response) {
-  console.log(response.data.hourly);
-  console.log(response.data.daily);
   let forecastHourly = response.data.hourly;
   let forecastElement = document.querySelector("#hour-forecast");
 
@@ -126,18 +113,15 @@ function displayHourForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "93d43dfe3b4a950e5b187e5dc313705e";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
 
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayHourForecast);
   axios.get(apiUrl).then(displayDayForecast);
 }
 
 function showWeatherForecast(forecast) {
-  console.log(forecast.data);
   let cityTemp = Math.round(forecast.data.main.temp);
   document.querySelector("#temperature").innerHTML = cityTemp;
   document.querySelector("#h-temp").innerHTML = Math.round(
@@ -163,9 +147,6 @@ function showWeatherForecast(forecast) {
   document
     .querySelector("#icon")
     .setAttribute("alt", forecast.data.weather[0].description);
-
-  celsiusTemp = cityTemp;
-  hTemp = Math.round(forecast.data.main.feels_like);
 
   getForecast(forecast.data.coord);
 }
@@ -204,34 +185,5 @@ function showCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-// change temperature unit
-
-function changeUnitF(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let fahrenheitHTemp = (hTemp * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fahrenheitTemp);
-
-  document.querySelector("#h-temp").innerHTML = Math.round(fahrenheitHTemp);
-}
-
-function changeUnitC(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = celsiusTemp;
-
-  document.querySelector("#h-temp").innerHTML = hTemp;
-}
-
-let celsius = document.querySelector("#unit-celsius");
-let fahrenheit = document.querySelector("#unit-fahrenheit");
-
-celsius.addEventListener("click", changeUnitC);
-fahrenheit.addEventListener("click", changeUnitF);
-
-let celsiusTemp = null;
-let hTemp = null;
 
 searchCity("London");
