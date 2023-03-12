@@ -61,6 +61,7 @@ function displayDayForecast(response) {
     let minTemp = Math.round(forecastDay[i].temp.min);
 
     document.getElementById(`day-${i}`).textContent = forecastDate;
+    document.getElementById(`day-${0}`).textContent = "Today";
     document.getElementById(
       `icon-${i}`
     ).src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
